@@ -1,1 +1,1 @@
-web: gunicorn supply_chain:app
+web: gunicorn supply_chain:app --preload
