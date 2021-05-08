@@ -4,6 +4,7 @@ Flask-Login
 Flask-PyMongo
 Flask-SQLAlchemy  
 Flask-WTF
+Flask-Materialize
 gunicorn
 Jinja2
 pymongo 
@@ -11,3 +12,7 @@ setuptools
 WTForms
 Werkzeug
 dnspython
+geopy
+Pillow
+requests
+xhtml2pdf
