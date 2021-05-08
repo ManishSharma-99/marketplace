@@ -1,0 +1,52 @@
+{% block app_content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+</head>
+
+<body>
+
+  <div class="cardk">
+    <div class="cardk-img">
+      <img src="{{ url_for('static',filename=prods.img) }}" />
+    </div>
+    <div class="cardk-body">
+      <h2 class="cardk-title">
+        {{ prods.prod_name }} <br>
+        ₹ {{ prods.prod_value }}
+      </h2>
+      <p class="cardk-intro">
+        {{ prods.prod_desc }} | Seller: {{ prods.user_name }}
+      <form action="/addcart" method="POST">
+        <button name="pro_id" value="{{prods._id}}" class="button">+ Add to Cart</button>
+      </form>
+      {% for k in range(1, range(2,6) | random) %}
+      &#9733;
+      <!-- <img style="width: 30px;" src="{{ url_for('static',filename='/icons/star_rate-24px.svg')}}"> -->
+      {% endfor %}
+      </p>
+    </div>
+  </div>
+
+
+
+
+  <!-- <div class="columns">
+    <ul class="price">
+      <li class="header"><img src="http://127.0.0.1:5000/static/{{ prods.img }}"></li>
+      <p><h4>{{ prods.prod_name }} <br> {{ prods.prod_desc }} | Seller: {{ prods.user_name }}</h4><h3>₹ {{ prods.prod_value }}</h3>
+        <form action="/addcart" method="POST" >
+        <button name="pro_id" value="{{prods._id}}" class="button">Add to Cart</button>
+      </form></p>
+    </ul>
+  </div> -->
+
+
+</body>
+
+</html>
+
+{% endblock %}

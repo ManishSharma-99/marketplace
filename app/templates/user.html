@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block app_content %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+</head>
+
+
+  <h1>{{ users.username }}</h1>
+  <h2>Rating: {{ rating }}</h2>
+  <hr>
+
+  <div class="columns">
+    <div class="containerk">
+      {% for prods in prod %}
+      <div class="cardk">
+        <div class="cardk-img">
+          <img src="{{ url_for('static',filename=prods.img) }}" />
+        </div>
+        <div class="cardk-body">
+          <h2 class="cardk-title">
+            {{ prods.prod_name }}
+          </h2>
+          <p class="cardk-intro">
+            {{ prods.prod_desc }} | Seller: {{ prods.user_name }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

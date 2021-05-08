@@ -1,0 +1,29 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+</head>
+
+<body>
+
+    <!-- <h2>Hello {{ usern }} !</h2> -->
+    
+    {% if prodts %}
+    {% for prods in prodts %}
+    <div class="columns">
+        <ul class="price">
+            <li class="header"><img src="http://127.0.0.1:5000/static/{{ prods.img }}"></li>
+            <p>
+            <h4>{{ prods.prod_name }} <br> {{ prods.prod_desc }} | Seller: {{ prods.user_name }}</h4>
+            <h3>₹ {{ prods.prod_value }}</h3>
+            <form action="/addcart" method="POST">
+                <button name="pro_id" value="{{prods._id}}" class="button">Add to Cart</button>
+            </form>
+            </p>
+        </ul>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endblock %}

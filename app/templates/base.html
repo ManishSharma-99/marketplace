@@ -1,0 +1,69 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+{% if title %}{{ title }} - Supply chain{% else %}Welcome to Jute supply chain{% endif %}
+{% endblock %}
+
+{% block navbar %}
+<body style="background: linear-gradient(to bottom, #ffffff 20%, #ffcc00 100%);">
+<nav class="navbar navbar-default" style="background-color:#FFD700">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('index') }}" style="font-size: 220%;color:black">जूट बाज़ार</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('index') }}" style="color:black">Home</a></li>
+                <!-- <li><form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form></li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_anonymous %}
+                <li><a href="{{ url_for('login') }}" style="color:black"><img style="width: 30px;"
+                            src="{{ url_for('static',filename='icons/login-24px.svg')}}">Login</a></li>
+                {% else %}
+                <li><a href="{{ url_for('user') }}" style="color:black"><img style="width: 30px;"
+                            src="{{ url_for('static',filename='icons/perm_identity-24px.svg')}}">Profile</a></li>
+                <li><a href="{{ url_for('profile') }}" style="color:black"><img style="width: 30px;"
+                            src="{{ url_for('static',filename='icons/search-24px.svg')}}">Search</a></li>
+                <li><a href="{{ url_for('cart') }}" style="color:black"><img style="width: 30px;"
+                            src="{{ url_for('static',filename='icons/shopping_cart-24px.svg')}}">Cart</a></li>
+                <li><a href="{{ url_for('product') }}" style="color:black"><img style="width: 30px;"
+                            src="{{ url_for('static',filename='icons/add_box-24px.svg')}}">Publish Product</a></li>
+                <li><a href="{{ url_for('logout') }}" style="color:black"><img style="width: 30px;"
+                            src="{{ url_for('static',filename='icons/power_settings_new-24px.svg')}}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert" style="background-color: rgb(255, 189, 67);color: white;">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {# application content needs to be provided in the app_content block #}
+    {% block app_content %}{% endblock %}
+</div>
+<footer><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr>
+    <center>@Houdini Inc.</center>
+</footer>
+</body>
+{% endblock %}

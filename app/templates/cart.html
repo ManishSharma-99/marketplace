@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+</head>
+
+
+
+    <h2>Hello {{ userc }} !</h2>
+    <h1>Your Cart </h1>
+
+    <h2>Total: ₹ {{ total }} </h2>
+    <hr>
+
+    {% if prodc %}
+    <div class="columns">
+        <div class="containerk">
+            {% for prods in prodc %}
+            <div class="cardk">
+                <div class="cardk-img">
+                    <img src="{{ url_for('static',filename=prods.img) }}" />
+                </div>
+                <div class="cardk-body">
+                    <h2 class="cardk-title">
+                        {{ prods.prod_name }}
+                    </h2>
+                    <p class="cardk-intro">
+                        {{ prods.prod_desc }} | Seller: {{ prods.user_name }}
+                    <form action="/remcart" method="post" novalidate>
+                        <button name="pro_id" value="{{prods._id}}" class="button">Remove From Cart</button>
+                    </form>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <br>
+    <br><br><br>
+
+
+{% endblock %}

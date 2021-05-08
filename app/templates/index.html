@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block app_content %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+</head>
+
+  <!-- <h5 style="color:maroon;"><em> Market > Jute Products</em></h5> -->
+
+  <div class="columns">
+    <div>
+      <!-- <h5 style="font-style: italic;">Hey {{ usern }} how you wanna save the world today?</h5> -->
+      <!-- <img src="https://i.pinimg.com/originals/18/42/81/184281f0fe87517a950beb8112c308dd.gif" style="size: 30px;"> -->
+      <div class="row">
+        <div class="col-md-4">
+
+          <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <h5>
+              {{ form.search.label }}<br>
+              {{ form.search(size=50) }}
+           </h5>
+            <p>{{ form.submit() }}</p>
+          </form>
+          <!-- {{ wtf.quick_form(form) }} -->
+        </div>
+      </div>
+    </div>
+<br>
+  <a href="#" class="badge badge-primary">Jute Sacks</a>
+  <a href="#" class="badge badge-secondary">Jute Handbags</a>
+  <a href="#" class="badge badge-success">Hessian Cloth</a>
+  <a href="#" class="badge badge-danger">Raw Jute</a>
+  <a href="#" class="badge badge-warning">Jute Handcrafts</a>
+  <a href="#" class="badge badge-info">Jute Matting</a>
+  <a href="#" class="badge badge-light">Jute Garments</a>
+  <a href="#" class="badge badge-dark">Jute Basket</a>
+    <br>
+    <div class="containerk">
+      {% for prods in prod %}
+      {% include 'prod.html' %}
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
