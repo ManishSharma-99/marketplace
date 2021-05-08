@@ -16,3 +16,4 @@ geopy
 Pillow
 requests
 xhtml2pdf
+email_validator
