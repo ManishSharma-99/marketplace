@@ -10,3 +10,4 @@ pymongo
 setuptools
 WTForms
 Werkzeug
+dnspython
