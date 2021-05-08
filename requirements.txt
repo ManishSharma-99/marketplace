@@ -29,7 +29,6 @@ geographiclib==1.50
 geopy==2.0.0
 html5lib==1.1
 idna==2.9
-itsdangerous==0.24
 post==2019.4.13
 public==2019.4.13
 pycparser==2.20
