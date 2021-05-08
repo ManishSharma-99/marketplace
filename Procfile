@@ -1,0 +1,1 @@
+web: gunicorn -w 4 supply_chain:app
