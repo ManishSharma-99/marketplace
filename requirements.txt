@@ -32,7 +32,6 @@ idna==2.9
 itsdangerous==0.24
 Jinja2==2.10
 Mako==1.1.2
-pdfkit==0.6.1
 post==2019.4.13
 public==2019.4.13
 pycparser==2.20
